@@ -117,7 +117,14 @@
 
   /* ---------- HERO ---------- */
   .hero{
+    position:relative;
     padding:76px 0 90px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
     background-image:
       linear-gradient(var(--line) 1px, transparent 1px),
       linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -125,8 +132,11 @@
     background-position:center -1px;
     -webkit-mask-image:linear-gradient(to bottom, black 55%, transparent 96%);
     mask-image:linear-gradient(to bottom, black 55%, transparent 96%);
+    pointer-events:none;
+    z-index:0;
   }
   .hero-grid{
+    position:relative; z-index:1;
     display:grid; grid-template-columns:1.3fr 1fr; gap:56px; align-items:start;
   }
   @media (max-width:800px){ .hero-grid{grid-template-columns:1fr;} }
